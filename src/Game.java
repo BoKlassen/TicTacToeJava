@@ -28,9 +28,6 @@ class Game{
         playerX.setSymbol('x');
         playerO.setSymbol('o');
 
-        System.out.println("PLAYERX: " + playerX.getSymbol());
-        System.out.println("PLAYERO: " + playerO.getSymbol());
-
         System.out.println("\nRandomly choosing turn order...\n");
 
         boolean xFirst;
