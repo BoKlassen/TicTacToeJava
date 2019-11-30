@@ -4,7 +4,7 @@ class Block{
     state = 1: X
     state = 2: O
      */
-    private int state = 0;
+    private char state = 0;
 
     Block(){}
 
@@ -12,23 +12,23 @@ class Block{
         return this.state;
     }
 
-    void setState(int state){
+    void setState(char state){
         this.state = state;
     }
 
     public boolean isValidState(int n){
-        if(this.state == 0 || this.state == 1 || this.state == 2) return true;
+        if(this.state == ' ' || this.state == 'x' || this.state == 'o') return true;
         return false;
     }
 
     @Override
     public String toString(){
         switch(this.state){
-            case 0:
+            case ' ':
                 return "This block is empty";
-            case 1:
+            case 'x':
                 return "This block hold the value 'X'";
-            case 2:
+            case 'o':
                 return "This block hold the value 'X'";
         }
         return null;

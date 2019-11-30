@@ -10,6 +10,16 @@ class Game{
 
     }
 
+    void win(Player player){
+        if(player == null){
+            System.out.println("It's a draw!");
+        }else{
+            System.out.println(player.getName() + " wins!");
+        }
+        board.displayBoard();
+        System.exit(0);
+    }
+
     void start(){
         board = new Board();
         setup();
@@ -33,15 +43,39 @@ class Game{
 
         if(xFirst){
             while(true){
-                if(board.hasEmpty()) playerX.play();
-                if(board.hasEmpty()) playerO.play();
+                if(board.hasEmpty()){
+                    playerX.play();
+                    if(board.checkWin(playerX.getSymbol())) win(playerX);
+                }else{
+                    break;
+                }
+                if(board.hasEmpty()){
+                    playerO.play();
+                    if(board.checkWin(playerO.getSymbol())) win(playerO);
+                }else{
+                    break;
+                }
             }
         }else{
             while(true){
-                if(board.hasEmpty()) playerO.play();
-                if(board.hasEmpty()) playerX.play();
+                if(board.hasEmpty()){
+                    playerO.play();
+                    if(board.checkWin(playerO.getSymbol())) win(playerO);
+                }else{
+                    break;
+                }
+                if(board.hasEmpty()){
+                    playerX.play();
+                    if(board.checkWin(playerX.getSymbol())) win(playerX);
+                }else{
+                    break;
+                }
             }
         }
+
+        if(board.checkWin(playerX.getSymbol())) win(playerX);
+        else if(board.checkWin(playerO.getSymbol())) win(playerO);
+        else win(null);
     }
 
     private void setup(){
