@@ -1,13 +1,17 @@
+<<<<<<< HEAD
 public class HumanPlayer extends Player {
 
     Board gameboard;
 
+=======
+class HumanPlayer extends Player {
+>>>>>>> 87508b809ea7073eaa64a7329bf61df256760682
     HumanPlayer(String name){
         this.name = name;
     }
 
     void play(){
-        gameboard = Game.board;
+        Board gameboard = Game.board;
 
         gameboard.displayBoard();
 

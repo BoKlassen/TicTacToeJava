@@ -1,3 +1,7 @@
+/**
+ * Game.java contains the gameboard, manages iteration between Player moves, and checks for gamewin condition.
+ */
+
 import java.util.Scanner;
 
 class Game implements Global{
@@ -6,11 +10,13 @@ class Game implements Global{
     static Board board;
     private Player playerX, playerO;
 
-    Game(){
+    Game(){}
 
-    }
-
-    void win(Player player){
+    /**
+     * Ends the game and prints the appropriate message for passed Player.
+     * @param player is used to determine win message. A null player implies draw condition.
+     */
+    private void win(Player player){
         if(player == null){
             System.out.println("It's a draw!");
         }else{
@@ -20,6 +26,9 @@ class Game implements Global{
         System.exit(0);
     }
 
+    /**
+     * New game is started.
+     */
     void start(){
         board = new Board();
         setup();
@@ -30,6 +39,7 @@ class Game implements Global{
 
         System.out.println("\nRandomly choosing turn order...\n");
 
+        //xFirst variable determines of playerX will play first. Decided randomly.
         boolean xFirst;
 
         if(Math.random() < 0.5){
@@ -38,6 +48,7 @@ class Game implements Global{
             xFirst = false;
         }
 
+        //loops player turns until win condition or draw condition. Order is decided randomly and based on boolean xFirst
         if(xFirst){
             while(true){
                 if(board.hasEmpty()){
@@ -75,8 +86,10 @@ class Game implements Global{
         else win(null);
     }
 
+    /**
+     * Determines the type of players, and gets their names.
+     */
     private void setup(){
-        //gamemode determines the type of players
         int gamemode;
         System.out.println("Welcome to TicTacToe!\n");
 
@@ -85,24 +98,24 @@ class Game implements Global{
             gamemode = sc.nextInt();
         }while(gamemode != 1 && gamemode != 2 && gamemode != 3);
 
+        //gets player names
+        System.out.println("Enter the name for Player X: ");
+        String nameX = sc.next();
+        System.out.println("Enter the name for Player O: ");
+        String nameO = sc.next();
+
         switch(gamemode){
             case 1:
-                System.out.println("Enter the name for Player X: ");
-                playerX = new HumanPlayer(sc.next());
-                System.out.println("Enter the name for Player O: ");
-                playerO = new HumanPlayer(sc.next());
+                playerX = new HumanPlayer(nameX);
+                playerO = new HumanPlayer(nameX);
                 break;
             case 2:
-                System.out.println("Enter the name for Player X: ");
-                playerX = new HumanPlayer(sc.next());
-                System.out.println("Enter the name for Player O: ");
-                playerO = new AIPlayer(sc.next());
+                playerX = new HumanPlayer(nameX);
+                playerO = new AIPlayer(nameX);
                 break;
             case 3:
-                System.out.println("Enter the name for Player X: ");
-                playerX = new AIPlayer(sc.next());
-                System.out.println("Enter the name for Player O: ");
-                playerO = new AIPlayer(sc.next());
+                playerX = new AIPlayer(nameX);
+                playerO = new AIPlayer(nameX);
                 break;
         }
     }

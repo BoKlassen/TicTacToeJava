@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 public class Board implements Global{
+=======
+class Board {
+>>>>>>> 87508b809ea7073eaa64a7329bf61df256760682
 
     private Block gameboard[][];
 
