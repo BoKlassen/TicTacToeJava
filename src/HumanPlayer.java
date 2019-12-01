@@ -1,15 +1,10 @@
-import java.util.Scanner;
-
-public class HumanPlayer extends Player {
-
-    Board gameboard;
-
+class HumanPlayer extends Player {
     HumanPlayer(String name){
         this.name = name;
     }
 
     void play(){
-        gameboard = Game.board;
+        Board gameboard = Game.board;
 
         gameboard.displayBoard();
 

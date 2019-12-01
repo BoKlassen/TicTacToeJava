@@ -1,13 +1,14 @@
-public class AIPlayer extends Player {
-
-    Board gameboard;
+/**
+ *AIPlayer is a subclass to Player.
+ */
+class AIPlayer extends Player {
 
     AIPlayer(String name){
         this.name = name;
     }
 
     void play() {
-        gameboard = Game.board;
+        Board gameboard = Game.board;
 
         gameboard.displayBoard();
 
