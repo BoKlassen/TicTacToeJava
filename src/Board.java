@@ -1,4 +1,4 @@
-public class Board {
+public class Board implements Global{
 
     private Block gameboard[][];
 
@@ -7,7 +7,7 @@ public class Board {
         for(int i = 0; i < 3; i++){
             for(int j = 0; j < 3; j++){
                 gameboard[i][j] = new Block();
-                gameboard[i][j].setState(' ');
+                gameboard[i][j].setState(EMPTY);
             }
         }
     }
@@ -23,7 +23,7 @@ public class Board {
     boolean hasEmpty(){
         for(int i = 0; i < 3; i++){
             for(int j = 0; j < 3; j++){
-                if(gameboard[i][j].getState() == ' ') return true;
+                if(gameboard[i][j].getState() == EMPTY) return true;
             }
         }
         return false;
@@ -61,18 +61,6 @@ public class Board {
         System.out.println((char)gameboard[0][0].getState() + "|" + (char)gameboard[0][1].getState() + "|" + (char)gameboard[0][2].getState());
         System.out.println((char)gameboard[1][0].getState() + "|" + (char)gameboard[1][1].getState() + "|" + (char)gameboard[1][2].getState());
         System.out.println((char)gameboard[2][0].getState() + "|" + (char)gameboard[2][1].getState() + "|" + (char)gameboard[2][2].getState());
-    }
-
-    char stateToChar(int state){
-        switch(state){
-            case 0:
-                return ' ';
-            case 1:
-                return 'x';
-            case 2:
-                return 'o';
-        }
-        return '0';
     }
 
     Block getElement(int n){

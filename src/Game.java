@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Game{
+class Game implements Global{
     static Scanner sc = new Scanner(System.in);
 
     static Board board;
@@ -25,8 +25,8 @@ class Game{
         setup();
 
         //set proper symbols
-        playerX.setSymbol('x');
-        playerO.setSymbol('o');
+        playerX.setSymbol(X);
+        playerO.setSymbol(O);
 
         System.out.println("\nRandomly choosing turn order...\n");
 

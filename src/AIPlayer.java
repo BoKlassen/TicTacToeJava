@@ -1,13 +1,12 @@
-public class AIPlayer extends Player {
+class AIPlayer extends Player {
 
-    Board gameboard;
 
     AIPlayer(String name){
         this.name = name;
     }
 
     void play() {
-        gameboard = Game.board;
+        Board gameboard = Game.board;
 
         gameboard.displayBoard();
 
@@ -15,7 +14,7 @@ public class AIPlayer extends Player {
         int place;
         do{
             place = (int) (Math.random() * 9) + 1;
-        }while(place > 9 || place < 1 || gameboard.getElement(place).getState() != ' ');
+        }while(place > 9 || place < 1 || gameboard.getElement(place).getState() != EMPTY);
 
         gameboard.getElement(place).setState(this.symbol);
     }

@@ -1,4 +1,4 @@
-class Block{
+class Block implements Global{
     /*
     state = 0: Empty
     state = 1: X
@@ -17,18 +17,18 @@ class Block{
     }
 
     public boolean isValidState(int n){
-        if(this.state == ' ' || this.state == 'x' || this.state == 'o') return true;
+        if(this.state == EMPTY || this.state == X || this.state == O) return true;
         return false;
     }
 
     @Override
     public String toString(){
         switch(this.state){
-            case ' ':
+            case EMPTY:
                 return "This block is empty";
-            case 'x':
+            case X:
                 return "This block hold the value 'X'";
-            case 'o':
+            case O:
                 return "This block hold the value 'X'";
         }
         return null;

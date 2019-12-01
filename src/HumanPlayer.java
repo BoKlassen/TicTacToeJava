@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class HumanPlayer extends Player {
 
     Board gameboard;
@@ -18,7 +16,7 @@ public class HumanPlayer extends Player {
         do{
             System.out.println("Enter a value");
             place = Game.sc.nextInt();
-        }while(place > 9 || place < 1 || gameboard.getElement(place).getState() != ' ');
+        }while(place > 9 || place < 1 || gameboard.getElement(place).getState() != EMPTY);
 
         gameboard.getElement(place).setState(this.symbol);
 

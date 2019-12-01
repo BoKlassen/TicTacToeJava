@@ -1,19 +1,11 @@
-abstract public class Player {
+abstract public class Player implements Global{
 
     char symbol;
     String name;
 
     Player(){}
 
-    Player(String name){
-        this.name = name;
-    }
-
     abstract void play();
-
-    void setName(String name){
-        this.name = name;
-    }
 
     String getName(){
         return name;
@@ -27,15 +19,4 @@ abstract public class Player {
         this.symbol = symbol;
     }
 
-    int getStateSymbol(){
-        switch(symbol){
-            case ' ':
-                return 0;
-            case 'x':
-                return 1;
-            case 'o':
-                return 2;
-        }
-        return '0';
-    }
 }
